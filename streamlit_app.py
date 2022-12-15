@@ -44,17 +44,13 @@ try:
 
 except URLError as e:
     streamlit.error()
-    
-    
-streamlit.write('The fruit load list contains:', fruit_choice)
 
-# don't run anything past here while we troubleshoot
-streamlit.stop()
 
+streamlit.write('The fruit load list contains:')
 
 # Snowflake related functions
 def get_fruit_load_list():
-    with my_cur = my_cnx.cursor() as my_cur:
+    with my_cnx.cursor() as my_cur:
     my_cur.execute("SELECT * from fruit_load_list")
     return my_cur.fetchall()
 
